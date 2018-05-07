@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>a-frame terrain</title>
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="js/aframe-orbit-controls-component.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webpack-cesium/1.37.0/webpack.cesium.js"></script>
+  <script src="js/aframe-aterrain-component.js"></script>
+</head>
+<body>
+  <a-scene>
+    <a-entity a-terrain="follow:0; fovpad:2; latitude:37; longitude:-122; radius:1000; elevation:580000"></a-entity>
+    <a-entity id="camera" camera="fov:45" mouse-cursor position="0 0 5000"></a-entity>
+  </a-scene>
+</body>
+</html>

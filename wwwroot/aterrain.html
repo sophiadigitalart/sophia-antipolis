@@ -3,22 +3,50 @@
 <head>
     <meta charset="utf-8" />
     <title>VR social network</title>
-    <!-- <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="js/aframe-orbit-controls-component.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webpack-cesium/1.37.0/webpack.cesium.js"></script>
-    <script src="js/aframe-aterrain-component.js"></script>-->
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <!-- <script src="js/aframe-orbit-controls-component.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/webpack-cesium/1.37.0/webpack.cesium.js"></script>
+     <script src="js/aframe-aterrain-component.js"></script>
+
     <script src="js/aframe-extras.min.js"></script>
-    <script defer src="js/super-hands.min.js"></script>
-    <script src="js/build.js"></script>
+     <script defer src="js/super-hands.min.js"></script>
+        or
+     <script src="js/build.js"></script>
+        -->
+    <script src="js/super-hands.min.js"></script>
+    <script src="js/aframe.min.js"></script>
+    <script src="js/aframe-event-set-component.min.js"></script>
+    <script src="js/aframe-environment-component.min.js"></script>
+
+
 </head>
     <body>
-        <a-scene antialias="true">
-
-            <!-- Camera -->
-            <a-entity position="-32 20 -33" rotation="0 -140 0">
-                <a-entity camera look-controls wasd-controls></a-entity>
+        <a-scene antialias="true" touch-to-click-converter>
+            <a-assets>
+                <a-mixin id="cube" geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"
+                         hoverable grabbable stretchable draggable droppable
+                         shadow
+                         event-set__dragdrop="_event: drag-drop; geometry.radius: 0.25; geometry.primitive: sphere"
+                         event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true"
+                         event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
+                         event-set__dragon="_event: dragover-start; material.wireframe: true"
+                         event-set__dragoff="_event: dragover-end; material.wireframe: false">
+                </a-mixin>
+            </a-assets>
+            <a-entity progressive-controls="objects: .cube, a-link; maxLevel: point">
+                <a-entity id="rhand" class="right-controller"></a-entity>
+                <a-entity id="lhand" class="left-controller"></a-entity>
             </a-entity>
-
+            <a-entity class="cube" mixin="cube" position="0 1 -1.25" material="color: red"></a-entity>
+            <a-entity class="cube" mixin="cube" position="0 1.6 -1.5" material="color: red"></a-entity>
+            <a-entity class="cube" mixin="cube" position="-0.9 1 -0.9" material="color: blue"></a-entity>
+            <a-entity class="cube" mixin="cube" position="-1 1.6 -1" material="color: blue"></a-entity>
+            <a-entity class="cube" mixin="cube" position="0.9 1 -0.9" material="color: green"></a-entity>
+            <a-entity class="cube" mixin="cube" position="1 1.6 -1" material="color: green"></a-entity>
+            <!-- Camera
+    <a-entity position="-32 20 -33" rotation="0 -140 0">
+        <a-entity camera look-controls wasd-controls></a-entity>
+    </a-entity> -->
             <!-- Terrain  0918273645 -->
             <a-entity terrain-model="DEM: url(data/clipped-envi3.bin); texture: url(data/MRGB-handclipped.jpg); planeWidth: 99.8; planeHeight: 99.8; segmentsWidth: 199; segmentsHeight: 199; zPosition: 50;"></a-entity>
             <!-- <a-entity color-terrain-model='colorScheme: magma;
@@ -29,13 +57,12 @@
                                segmentsHeight: 199;
                                zPosition: 100'>
     </a-entity>-->
-            <!-- Sky -->
-            <a-sky color="#ffd4a6"></a-sky>
-
+            <a-entity progressive-controls="objects: a-box"></a-entity>
+            <!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more
+    <a-box hoverable grabbable stretchable draggable dropppable
+           color="blue" position="0 4 -1"></a-box>-->
+            <!-- Sky
+    <a-sky color="#ffd4a6"></a-sky> -->
         </a-scene>
-    <!-- <a-scene>
-      <a-entity a-terrain="follow:0; fovpad:2; latitude:43.5548011; longitude:7.0199538; radius:200; elevation:3000"></a-entity>
-      <a-entity id="camera" camera="fov:0.7" mouse-cursor position="18 138 200"></a-entity>
-    </a-scene> -->
     </body>
 </html>

@@ -1,1 +1,0 @@
-IRB-clipped. An alternate texture that doesn't look as good.

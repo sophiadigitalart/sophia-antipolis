@@ -24,7 +24,7 @@ export class NavMenu extends React.Component<{}, {}> {
                         </li>
                         <li>
                             <NavLink to={ '/aterrain.html' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-education'></span> Counter
+                                <span className='glyphicon glyphicon-education'></span> Terrain
                             </NavLink>
                         </li>
                         <li>

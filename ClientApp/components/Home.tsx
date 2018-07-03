@@ -9,6 +9,7 @@ export class Home extends React.Component<RouteComponentProps<{}>, {}> {
             <p><a href="/biot.html">Biot</a></p>
             <p><a href="/vuebase.html">Vue de base</a></p>
             <p><a href="/version2.html">Saint-Philippe Version 2</a></p>
+            <p><a href="/arbres.html">Arbres</a></p>
             
         </div>;
     }

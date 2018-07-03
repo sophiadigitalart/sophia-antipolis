@@ -1,0 +1,28 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Arbres</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;utf-8" />
+    <!-- <script src="../build.js"></script> -->
+    <script src="js/build.js"></script>
+    <script src="js/aframe-auto-detect-controllers-component.min.js" data-component-description="A-Frame" data-component-names="auto-detect-controllers" data-component-url="https://npmjs.com/package/aframe-auto-detect-controllers-component" data-package-name="aframe-auto-detect-controllers-component"></script>
+</head>
+<body class="a-body ">
+    <a-scene antialias="true" class="fullscreen" canvas="" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
+
+        <!-- Camera -->
+        <a-entity position="-32 20 -33" rotation="0 -140 0">
+            <a-entity camera="" look-controls="" wasd-controls="" rotation="-32.086 -22.345 0" auto-detect-controllers=""></a-entity>
+        </a-entity>
+
+        <!-- Terrain -->
+        <a-collada-model src="data/arbres.dae" collada-model="data/arbres.dae" position="2.966 0.79 0.717" scale="201 201 201.01"></a-collada-model>
+
+        <!-- Sky -->
+        <a-sky color="#d4a6ff" material="" geometry=""></a-sky>
+
+    </a-scene>
+
+
+</body>
+</html>
